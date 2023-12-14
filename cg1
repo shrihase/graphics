@@ -82,5 +82,22 @@ int main()
 8. **Graphics Cleanup:**
    - The `getch` function is used to wait for a key press before closing the graphics window.
    - The `closegraph` function is called to release the resources used by the graphics system.
+The Scan-Line Fill Algorithm is a computer graphics algorithm used to fill the interior of a polygon with a specified color. The basic idea behind this algorithm is to scan the image or screen line by line, determining the intersections between scanlines and the edges of the polygon. Once the intersections are known, the algorithm fills the interior of the polygon between pairs of intersections.
+
+Here are the basic steps of the Scan-Line Fill Algorithm:
+
+Initialize an Edge Table (ET): The Edge Table is a data structure that stores information about the edges of the polygon. For each edge, it should store the Y-coordinate of the bottom vertex, the inverse slope (1/m), and the X-coordinate of the bottom vertex.
+
+Initialize an Active Edge Table (AET): The Active Edge Table is initially empty and is used to store edges that intersect the current scanline.
+
+Fill the Edge Table (ET): For each edge of the polygon, calculate the Y-coordinate of the bottom vertex, the inverse slope, and the X-coordinate of the bottom vertex. Sort the edges in the Edge Table based on their Y-coordinate.
+
+Process each scanline: Start scanning the image or screen line by line from the bottom to the top of the polygon. For each scanline, update the Active Edge Table by adding edges from the Edge Table where the Y-coordinate matches the current scanline. Remove edges from the Active Edge Table where the Y-coordinate is equal to the Y-coordinate of the top vertex of the edge.
+
+Fill the pixels between pairs of intersections: Sort the Active Edge Table based on the current X-coordinate of the edges. Pair the edges and fill the pixels between each pair of intersections on the current scanline.
+
+Update X-coordinates in the Active Edge Table: For each edge in the Active Edge Table, update its X-coordinate based on the inverse slope.
+
+Repeat the process for each scanline: Continue scanning and filling until you reach the top of the polygon.
 
 These topics cover the key aspects of the provided code, from graphics initialization to rectangle drawing and the implementation of the flood fill algorithm//
