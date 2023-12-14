@@ -48,3 +48,39 @@ int main()
     closegraph();
     return 0;
 }
+
+
+//Certainly! Here are the theory topics related to the provided code:
+
+1. **Graphics.h Library:**
+   - The `graphics.h` library is a graphics library in C and C++ that provides functions for drawing basic shapes, text, and images on the screen.
+   - It is commonly used for simple graphics programming and is often associated with the Borland Turbo C compiler.
+
+2. **Graphics Initialization:**
+   - The `initgraph` function is used to initialize the graphics system with the specified graphics driver and mode.
+   - In the provided code, `DETECT` is used as the graphics driver, which allows the system to automatically detect a suitable graphics driver.
+
+3. **Drawing a Rectangle:**
+   - The rectangle is drawn using the `line` function to create four lines forming a rectangular shape.
+   - Different colors are set for each line using the `setcolor` function.
+
+4. **Flood Fill Algorithm:**
+   - The `FloodFill` function implements the flood fill algorithm, a technique for filling connected regions of the same color with a new color.
+   - It recursively fills neighboring pixels until it encounters a boundary with a color different from the initial color.
+
+5. **Pixel Manipulation:**
+   - The `getpixel` function retrieves the color of a pixel at a specified coordinate.
+   - The `putpixel` function sets the color of a pixel at a specified coordinate.
+
+6. **Recursive Function:**
+   - The flood fill algorithm is implemented as a recursive function. A recursive function is a function that calls itself.
+   - In this case, the `FloodFill` function calls itself for neighboring pixels until the filling is complete.
+
+7. **Delay Function:**
+   - The `delay` function introduces a small delay (in milliseconds) to make the flood fill animation visible. It slows down the execution of the program.
+
+8. **Graphics Cleanup:**
+   - The `getch` function is used to wait for a key press before closing the graphics window.
+   - The `closegraph` function is called to release the resources used by the graphics system.
+
+These topics cover the key aspects of the provided code, from graphics initialization to rectangle drawing and the implementation of the flood fill algorithm//
