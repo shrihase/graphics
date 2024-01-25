@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+class TelephoneBook {
+private:
+    static const int tableSize = 100;
+
+    struct Entry {
+        char name[50];
+        char phoneNumber[15];
+    };
+
+    Entry table[tableSize];
+
+    int hashFunction(const char* key) {
+        int hash = 0;
+        for (int i = 0; key[i] != '\0'; ++i) {
+            hash += static_cast<int>(key[i]);
+        }
+        return hash % tableSize;
+    }
+
+public:
+    void insertEntry(const char* name, const char* phoneNumber) {
+        int index = hashFunction(name);
+        strcpy(table[index].name, name);
+        strcpy(table[index].phoneNumber, phoneNumber);
+    }
+
+    const char* findPhoneNumber(const char* name) {
+        int index = hashFunction(name);
+        for (int i = 0; i < tableSize; ++i) {
+            if (strcmp(table[index].name, name) == 0) {
+                return table[index].phoneNumber;
+            }
+        }
+        return "Not found";
+    }
+};
+
+int main() {
+    TelephoneBook telephoneBook;
+
+    telephoneBook.insertEntry("John Doe", "123-456-7890");
+    telephoneBook.insertEntry("Jane Smith", "987-654-3210");
+
+    cout << "John Doe's phone number: " << telephoneBook.findPhoneNumber("John Doe") << endl;
+    cout << "Jane Smith's phone number: " << telephoneBook.findPhoneNumber("Jane Smith") << endl;
+    cout << "Non-existent entry's phone number: " << telephoneBook.findPhoneNumber("Non-existent") << endl;
+
+    return 0;
+}
